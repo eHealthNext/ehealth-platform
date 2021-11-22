@@ -1,4 +1,4 @@
-# saleor-platform
+# ehealth-platform
 All Saleor services started from a single repository
 
 *Keep in mind this repository is for local development only and is not meant to be deployed on any production environment! If you're not a developer and just want to try out Saleor you can check our [live demo](https://demo.saleor.io/).*
@@ -13,17 +13,17 @@ All Saleor services started from a single repository
 1. Clone the repository:
 
 ```
-$ git clone https://github.com/mirumee/saleor-platform.git --recursive --jobs 3
+$ git clone https://github.com/eHealthNext/ehealth-platform.git --recursive --jobs 3
 ```
 
 2. We are using shared folders to enable live code reloading. Without this, Docker Compose will not start:
-    - Windows/MacOS: Add the cloned `saleor-platform` directory to Docker shared directories (Preferences -> Resources -> File sharing).
+    - Windows/MacOS: Add the cloned `ehealth-platform` directory to Docker shared directories (Preferences -> Resources -> File sharing).
     - Windows/MacOS: Make sure that in Docker preferences you have dedicated at least 5 GB of memory (Preferences -> Resources -> Advanced).
     - Linux: No action required, sharing already enabled and memory for Docker engine is not limited.
 
 3. Go to the cloned directory:
 ```
-$ cd saleor-platform
+$ cd ehealth-platform
 ```
 
 4. Build the application:
@@ -64,9 +64,9 @@ $ git submodule update --remote
 
 You can find the latest version of Saleor, storefront and dashboard in their individual repositories:
 
-- https://github.com/mirumee/saleor
-- https://github.com/mirumee/saleor-dashboard
-- https://github.com/mirumee/saleor-storefront
+- https://github.com/eHealthNext/saleor
+- https://github.com/eHealthNext/saleor-dashboard
+- https://github.com/eHealthNext/saleor-storefront
 
 ## How to solve issues with lack of available space or build errors after update
 
@@ -130,15 +130,15 @@ $ docker system prune
 If you have any questions or feedback, do not hesitate to contact us via Spectrum or Gitter:
 
 - https://spectrum.chat/saleor
-- https://gitter.im/mirumee/saleor
+- https://gitter.im/eHealthNext/saleor
 
 
 ## License
 
-Disclaimer: Everything you see here is open and free to use as long as you comply with the [license](https://github.com/mirumee/saleor-platform/blob/master/LICENSE). There are no hidden charges. We promise to do our best to fix bugs and improve the code.
+Disclaimer: Everything you see here is open and free to use as long as you comply with the [license](https://github.com/eHealthNext/ehealth-platform/blob/master/LICENSE). There are no hidden charges. We promise to do our best to fix bugs and improve the code.
 
 Some situations do call for extra code; we can cover exotic use cases or build you a custom e-commerce appliance.
 
-#### Crafted with ❤️ by [Mirumee Software](http://mirumee.com)
+#### Crafted with ❤️ by [eHealthNext](http://eHealthNext.com)
 
-hello@mirumee.com
+hello@eHealthNext.com
