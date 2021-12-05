@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  db:
+    image: library/postgres:13.3-alpine
+    ports:
+      - 5433:5432
+    restart: unless-stopped
+    networks:
+      - ehealth-backend-tier
+    volumes:
+      - db-vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=ehealth
+      - POSTGRES_PASSWORD=ehealth
+
+  pgadmin:
+    image: dpage/pgadmin4:6.1
+    env_file: common.env
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin-vol:/var/lib/pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - ehealth-backend-tier
+    restart: unless-stopped
+  
+volumes:
+  db-vol:
+    driver: local
+  pgadmin-vol:
+  
+
+networks:
+  ehealth-backend-tier:
+    driver: bridge

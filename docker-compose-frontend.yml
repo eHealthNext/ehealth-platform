@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  storefront:
+    build:
+      context: ./saleor-storefront
+      dockerfile: ./Dockerfile.prod
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./saleor-storefront/:/app:cached
+      - /app/node_modules/
+    command: npm start
+    env_file: common.env
+
+  dashboard:
+    build:
+      context: ./saleor-dashboard
+      dockerfile: ./Dockerfile.prod
+    ports:
+      - 9000:9000
+    restart: unless-stopped
+    volumes:
+      - ./saleor-dashboard/:/app:cached
+      - /app/node_modules/
+    command: npm start -- --host 0.0.0.0
+    env_file: common.env
+
+  
+volumes:
+  media-vol:
+
+networks:
+  ehealth-backend-tier:
+    driver: bridge
